@@ -1,5 +1,5 @@
 import type { MetaFunction, LinksFunction, LoaderFunction } from 'remix';
-import { useRouteData } from 'remix';
+import { useRouteData, Link } from 'remix';
 
 import stylesUrl from '../styles/index.css';
 
@@ -27,6 +27,9 @@ export default function Index() {
       <p>
         <a href="https://remix.run/dashboard/docs">Check out the docs</a> to get
         started.
+      </p>
+      <p>
+        <Link to="/">Index</Link>
       </p>
       <p>Message from the loader: {data.message}</p>
     </div>
