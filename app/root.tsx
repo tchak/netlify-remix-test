@@ -1,8 +1,9 @@
 import type { LinksFunction, LoaderFunction } from 'remix';
 import { Meta, Links, Scripts, useRouteData, LiveReload } from 'remix';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import stylesUrl from './styles/global.css';
+import { Header } from './components/layout';
 
 export let links: LinksFunction = () => {
   return [{ rel: 'stylesheet', href: stylesUrl }];
@@ -32,16 +33,10 @@ function Document({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  let data = useRouteData();
   return (
     <Document>
+      <Header />
       <Outlet />
-      <footer>
-        <p>This page was rendered at {data.date.toLocaleString()}</p>
-        <p>
-          <Link to="/">Index 2</Link>
-        </p>
-      </footer>
     </Document>
   );
 }
